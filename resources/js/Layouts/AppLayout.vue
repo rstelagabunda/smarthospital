@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app" data-scroll>
     <!-- BEGIN: Mobile Menu -->
     <div  class="mobile-menu md:hidden">
       <div class="mobile-menu-bar flex justify-end">
@@ -224,7 +224,7 @@
         </div>
         <!-- END: Top Bar -->
         <div>
-          <main class="py-1">
+          <main class="py-1" data-scroll>
             <div>
               <!-- <div class="bg-gray-100 overflow-hidden shadow-xl sm:rounded-lg"> -->
               <slot></slot>

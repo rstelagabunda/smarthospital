@@ -11,7 +11,9 @@ import { InertiaApp } from '@inertiajs/inertia-vue';
 import { InertiaForm } from 'laravel-jetstream';
 import PortalVue from 'portal-vue';
 import { InertiaProgress } from '@inertiajs/progress'
+import LocomotiveScroll from 'locomotive-scroll';
 
+const scroll = new LocomotiveScroll();
 InertiaProgress.init(
     {
         // The delay after which the progress bar will

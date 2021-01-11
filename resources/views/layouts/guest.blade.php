@@ -70,7 +70,7 @@
                             <br>
                             <a class="text-theme-1 dark:text-theme-10" href="">Terms and Conditions</a> & <a class="text-theme-1 dark:text-theme-10" href="">Privacy Policy</a> 
                         </div> -->
-                        <div class="font-sans text-gray-900 bg-white antialiased">
+                        <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
                     <!-- </div> -->

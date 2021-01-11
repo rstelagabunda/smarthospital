@@ -3,3 +3,4 @@
 @import 'tailwindcss/utilities';
 /* @import "../js/assets/sass/app.scss"; */
 @import './theme.css';
+@import './scrolling.css';
