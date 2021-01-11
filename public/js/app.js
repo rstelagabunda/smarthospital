@@ -46008,7 +46008,7 @@ var render = function() {
             "inertia-link",
             {
               staticClass:
-                "block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out",
+                "block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-yellow-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out",
               attrs: { "preserve-scroll": "", href: _vm.href }
             },
             [_vm._t("default")],
@@ -63823,7 +63823,7 @@ _inertiajs_progress__WEBPACK_IMPORTED_MODULE_4__["InertiaProgress"].init({
   // appear during navigation, in milliseconds.
   delay: 250,
   // The color of the progress bar.
-  color: '#29d',
+  color: '#fff',
   // Whether to include the default NProgress styles.
   includeCSS: true,
   // Whether the NProgress spinner will be shown.
