@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\jabatan;
+use App\Models\JadwalKerja;
+use App\Models\pendidikan;
+use App\Models\statuskerja;
 use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -14,11 +18,13 @@ class UserProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users= User::select('name','profile_photo_path','id','title')->paginate(20);
+        $users = User::when($request->term, function($query, $term){
+            $query->where('name','LIKE','%'.$term.'%');
+        })->select('name','profile_photo_path','id','title')->paginate(10);
         // dd($users);
-        return Inertia::render('users/index',['users'=>$users]);
+        return Inertia::render('users/index',['users'=>$users,'term'=>$request->term?$request->term:'']);
     }
 
     /**
@@ -48,10 +54,17 @@ class UserProfileController extends Controller
      * @param  \App\Models\UserProfile  $userProfile
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $user,Request $request)
     {
+        $user=user::where('id',$user->id)->with('userfamilymembers','userpersonaldata')->first();
+        $masterdata=[
+            "jabatan" => jabatan::all(),
+            "jadwalkerja" => JadwalKerja::all(),
+            "statuskerja" => statuskerja::all(),
+            "pendidikan" => pendidikan::all(),
+        ];
         return inertia::render('users/userprofile',[
-            'user'=>$user
+            'userprofile'=>$user,'tab'=>$request->get('tab')?$request->get('tab'):0,'masterdata'=>$masterdata
         ]);
     }
 

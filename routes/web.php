@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return redirect('/login');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
     Route::get('/dashboard', function () {
-        return Inertia\Inertia::render('Dashboard');
+        return Inertia::render('Dashboard');
     })->name('dashboard');
 
 
     // Employee profile routes
 
-    Route::get('/users',[UserProfileController::class,'index'])->name('users.index');
-    Route::get('/userprofile/{user}/edit',[UserProfileController::class,'show'])->name('user.profile');
+    Route::get('/users',[UserProfileController::class,'index'])->name('users');
+    Route::get('/userprofile/{user}/edit',[UserProfileController::class,'show'])->name('users.show');
 });
 

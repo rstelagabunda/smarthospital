@@ -10,7 +10,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "@inertiajs/inertia": "^0.1.7",
+        "@inertiajs/inertia": "^0.3.0",
         "@inertiajs/inertia-vue": "^0.2.0",
         "@tailwindcss/postcss7-compat": "^2.0.2",
         "@tailwindcss/ui": "^0.6.0",
@@ -34,6 +34,7 @@
     },
     "dependencies": {
         "@inertiajs/progress": "^0.1.0",
-        "locomotive-scroll": "^4.0.6"
+        "locomotive-scroll": "^4.0.6",
+        "moment-timezone": "^0.5.32"
     }
 }
